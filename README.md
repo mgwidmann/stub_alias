@@ -43,10 +43,11 @@ config :stub_alias,
   "MyModule.Foo": MyModule.Stubs.Foo
 ```
 
-Setup your mix.exs to compile in the `test/support` folder (like in Phoenix)[https://github.com/phoenixframework/phoenix/blob/master/installer/templates/new/mix.exs#L12]. Then replace `alias MyModule.Foo` with `stub_alias MyModule.Foo` (after `import StubAlias` of course):
+Setup your mix.exs to compile in the `test/support` folder [like in Phoenix](https://github.com/phoenixframework/phoenix/blob/master/installer/templates/new/mix.exs#L12). Then replace `alias MyModule.Foo` with `stub_alias MyModule.Foo` (after `import StubAlias` of course):
 
 **SOLUTION**
 
+`lib/my_module.ex`
 ```elixir
 defmodule MyModule do
   import StubAlias
@@ -57,5 +58,17 @@ defmodule MyModule do
   end
 end
 ```
+
+`test/support/foo.ex`
+```elixir
+defmodule MyModule.Stubs.Foo do
+  def do_something_with_side_effects() do
+    # Return hard coded data or get data from an agent or whatever you please
+    results = %{}
+    results
+  end
+end
+```
+
 
 In the `:test` Mix.env, your aliases will be replaced as desired. This then allows you to have a compiled `test/support` folder which supplies those stubs, making easy explicit replacements of code at test time.
