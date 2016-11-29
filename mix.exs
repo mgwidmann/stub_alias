@@ -17,6 +17,7 @@ defmodule StubAlias.Mixfile do
        readme: "README.md"
      ],
      deps: deps,
+     package: package,
      aliases: aliases]
   end
 
@@ -37,9 +38,19 @@ defmodule StubAlias.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.10", only: :dev},
+      {:earmark, "~> 0.1", only: :dev}
+    ]
   end
 
+  defp package do
+    [
+      maintainers: ["Matt Widmann"],
+      licenses: ["MIT"],
+      links: %{github: "https://github.com/mgwidmann/stub_alias"}
+    ]
+  end
   defp aliases do
     [publish: ["hex.publish", "hex.publish docs", "tag"],
      tag: &tag_release/1]
