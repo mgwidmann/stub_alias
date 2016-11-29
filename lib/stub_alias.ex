@@ -53,6 +53,13 @@ defmodule StubAlias do
 
   defp _stub_alias({:__aliases__, _, module}, opts) do
     concatted_module = module |> Enum.map(&to_string/1) |> Enum.join(".") |> String.to_atom
+    new_module = Module.concat(:Elixir, Application.get_env(:stub_alias, concatted_module, concatted_module))
+    as_module = Module.concat(:Elixir, List.last(module))
+    opts = if as_module != new_module do
+         Keyword.put(opts, :as, Keyword.get(opts, :as, as_module))
+       else
+         opts
+       end
     quote do
       alias unquote(Module.concat(:Elixir, Application.get_env(:stub_alias, concatted_module, concatted_module))), unquote(opts)
     end
