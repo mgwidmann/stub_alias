@@ -6,17 +6,13 @@ A simple macro to allow switching `alias` statements out with different values b
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add stub_alias to your list of dependencies in `mix.exs`:
+Add stub_alias to your list of dependencies in `mix.exs`:
 
-        def deps do
-          [{:stub_alias, "~> 0.0.1"}]
-        end
+    def deps do
+      [{:stub_alias, "~> 0.1.0"}]
+    end
 
-  2. Ensure stub_alias is started before your application:
-
-        def application do
-          [applications: [:stub_alias]]
-        end
+`StubAlias` is a compile time dependency and can be left out of the `applications` list.
 
 ## Usage
 
