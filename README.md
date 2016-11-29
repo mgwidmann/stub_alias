@@ -1,10 +1,10 @@
-# Stub Alias
+# Stub Alias [![Hex.pm](https://img.shields.io/hexpm/v/stub_alias.svg)]()
 
 A simple macro to allow switching `alias` statements out with different values based upon environment.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+[Available in Hex](https://hex.pm/packages/stub_alias), the package can be installed as:
 
 Add stub_alias to your list of dependencies in `mix.exs`:
 
