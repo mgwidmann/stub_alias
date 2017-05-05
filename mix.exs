@@ -1,7 +1,7 @@
 defmodule StubAlias.Mixfile do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.1.2"
   def project do
     [app: :stub_alias,
      version: @version,
@@ -16,9 +16,9 @@ defmodule StubAlias.Mixfile do
        main: StubAlias,
        readme: "README.md"
      ],
-     deps: deps,
-     package: package,
-     aliases: aliases]
+     deps: deps(),
+     package: package(),
+     aliases: aliases()]
   end
 
   # Configuration for the OTP application
